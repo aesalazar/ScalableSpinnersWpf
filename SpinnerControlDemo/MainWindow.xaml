@@ -3,10 +3,86 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SpinnerControlDemo"
+        xmlns:spinnerControlLibrary="clr-namespace:SpinnerControlLibrary;assembly=SpinnerControlLibrary"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <!--CELL 1:1 - Unconstrained ratio-->
+        <Grid Grid.Row="0" Grid.Column="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Stretches to Grid Width and Height" />
+            <spinnerControlLibrary:DualCogs
+                Grid.Row="1"
+                CogsStroke="DarkGray"
+                CogsForeground="LightYellow"
+                />
+        </Grid>
+
+        <!--CELL 0:1 - 1 to 1 ratio-->
+        <Grid Grid.Row="0" Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Fixed Ratio and Stretch Height" />
+            <spinnerControlLibrary:DualCogs
+                CogsForeground="Transparent"
+                Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}"
+                Grid.Row ="1"/>
+        </Grid>
+
+
+        <!--CELL 1:0 - 1 to 1 ratio at fixed size-->
+        <Grid Grid.Row="1" Grid.Column="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Fixed Ratio and Fixed Size" />
+            <spinnerControlLibrary:DualCogs
+                Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}"
+                CogsSpeed="10"
+                Height="50"
+                Grid.Row ="1"/>
+        </Grid>
+
+        <!--CELL 1:1 - 1 to 1 ratio with Opacity-->
+        <Grid Grid.Row="1" Grid.Column="1" >
+            <Grid.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Background" Value="Black" />
+                    <Setter Property="Foreground" Value="ForestGreen" />
+                    <Setter Property="TextWrapping" Value="Wrap" />
+                </Style>
+            </Grid.Resources>
+            
+            <StackPanel>
+                <TextBlock Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet nisl ullamcorper, bibendum ante in, laoreet nisi. Integer euismod magna lacus, vel pulvinar est sagittis sed. Integer cursus viverra dolor, id dictum enim vestibulum at. Sed pharetra turpis fringilla sem vulputate, imperdiet ornare turpis blandit. Vivamus condimentum, ante eget semper tristique, nisi felis tristique augue, in ultrices quam dolor sit amet urna. Curabitur gravida magna ac purus pulvinar, nec semper neque tristique. Nam at scelerisque lorem, at consectetur tellus. " />
+                <TextBlock Text="Proin non fermentum erat, at aliquet nulla. Vivamus at vulputate risus, eget rutrum elit. Donec consequat malesuada nibh eget fringilla. Maecenas ut odio placerat, eleifend nibh vel, interdum orci. Aliquam lacinia tempus odio, non feugiat nibh dignissim ut. Praesent felis turpis, accumsan at egestas et, laoreet sit amet enim. Pellentesque id lorem sodales, aliquet neque ac, feugiat lorem. Ut molestie, diam at malesuada convallis, orci tellus pretium sapien, ut pellentesque tortor nibh ut ante. Nunc luctus mi purus, a hendrerit purus tristique a. Curabitur accumsan at nulla ut elementum. Donec eget tincidunt libero. Proin turpis nibh, aliquet id felis vitae, molestie semper ligula. Morbi sit amet lacus finibus, aliquet felis vitae, porttitor sem. Donec bibendum scelerisque leo. In vitae nisi vulputate, fringilla magna ac, consequat metus. Nunc vitae metus dapibus, placerat justo et, dignissim orci." />
+                <TextBlock Text="Quisque venenatis mauris ac sollicitudin pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean sed ante quis erat mollis porta quis non massa. Sed vestibulum egestas justo, non efficitur lorem vestibulum a. Sed neque nibh, dictum quis tincidunt sed, vulputate sed metus. Proin faucibus lorem eget egestas rutrum. Proin varius lacus interdum tincidunt dignissim. Fusce aliquam luctus elit luctus maximus. Nullam congue placerat sollicitudin. Donec venenatis, orci id dictum consectetur, nisl arcu elementum neque, sed fermentum quam elit vitae lacus. Vestibulum non libero et odio gravida eleifend in vel est. Duis vel mattis erat. Ut tincidunt turpis tempor nunc consequat, eget iaculis ante semper." />
+                <TextBlock Text="Sed suscipit dictum nibh, vitae blandit lorem varius in. Morbi ac mauris malesuada, vestibulum eros molestie, ultricies risus. Ut molestie laoreet ipsum, ut venenatis metus cursus id. Pellentesque nec purus vestibulum nisl ullamcorper blandit ut hendrerit mauris. Donec tincidunt ligula ac porta auctor. Suspendisse vulputate odio vitae odio molestie mattis sit amet sit amet erat. Cras semper est ut congue accumsan. Fusce aliquet lorem quis pellentesque dictum. Phasellus molestie sodales vehicula. Vestibulum ullamcorper est eget dui rhoncus sodales eget at lectus. Curabitur a pellentesque purus. Curabitur et tincidunt massa. Vestibulum non purus nec massa vulputate rhoncus." />
+                <TextBlock Text="Maecenas consequat sagittis mattis. Sed vitae arcu a diam feugiat cursus ut in mi. Mauris iaculis in nisl eu porttitor. Nam posuere, felis et rhoncus porta, enim lorem suscipit lectus, quis tincidunt purus odio et mauris. Integer ullamcorper felis nec gravida tempus. Quisque et sapien sem. Vestibulum quis orci auctor, lacinia mauris vitae, mollis magna. Ut vulputate lectus dolor, sit amet mattis sapien faucibus at. Pellentesque lobortis nulla vel nisl convallis, a varius arcu varius. Morbi et tellus et augue convallis faucibus id sed quam. Aenean a lorem lacus. Donec pellentesque commodo lectus id dictum. " />
+            </StackPanel>
+
+            <spinnerControlLibrary:DualCogs
+                Opacity=".35"
+                CogsSpeed="3"
+                CogsForeground="White"
+                CogsStroke="DarkCyan"
+                Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" />
+        </Grid>
+
     </Grid>
 </Window>
