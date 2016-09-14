@@ -25,9 +25,9 @@
             <TextBlock Text="Stretches to Grid Width and Height" />
             <spinnerControlLibrary:DualCogs
                 Grid.Row="1"
+                CogsSpeed="5"
                 CogsStroke="DarkGray"
-                CogsForeground="LightYellow"
-                />
+                CogsForeground="LightYellow"/>
         </Grid>
 
         <!--CELL 0:1 - 1 to 1 ratio-->
