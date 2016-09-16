@@ -48,8 +48,12 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\ConverterColorToSolidColorBrush.cs" />
     <Compile Include="Converters\ConverterKeyTimeMultiplier.cs" />
     <Compile Include="Converters\ConverterNumberMultipliedByFactor.cs" />
+    <Compile Include="EightDotsSpinner.xaml.cs">
+      <DependentUpon>EightDotsSpinner.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -78,9 +82,23 @@
     <None Include="Vectors\Cog.ai" />
     <None Include="Vectors\Cog.dwg" />
     <None Include="Vectors\Cog.dxf" />
+    <None Include="Vectors\Dot.ai" />
+    <None Include="Vectors\Dot.dwg" />
+    <None Include="Vectors\Dot.dxf" />
+    <None Include="Vectors\Dots.ai" />
+    <None Include="Vectors\Dots.dwg" />
+    <None Include="Vectors\Dots.dxf" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Dictionaries\EightDotsPath.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dictionaries\SpinnerCogPaths.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EightDotsSpinner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

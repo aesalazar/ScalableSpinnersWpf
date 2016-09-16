@@ -10,7 +10,7 @@ namespace SpinnerControlLibrary
 	{
         public DualCogs()
 		{
-			this.InitializeComponent();
+			InitializeComponent();
         }
 
         /// <summary>
