@@ -19,8 +19,8 @@ interested in editing or creating their own:
 * <a href="http://babacad.com/" target="_blank">BabaCAD Free CAD Software</a>
 * <a href="https://convertio.co/dxf-ai/" target="_blank">Convert DXF to AI file</a>
 
-
-
 Screenshot of examples running in WPF:
 
-<img src="screeny.gif" alt="Smiley face" height="200" > 
+<div style="text-align: center;">
+<img src="screeny.gif" alt="Smiley face" height="300" >
+</div>
