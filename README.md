@@ -19,6 +19,7 @@ their own:
 * <a href="http://freecadweb.org/" target="_blank">FreeCAD Open Source Project</a>
 * <a href="http://babacad.com/" target="_blank">BabaCAD Free CAD Software</a>
 * <a href="https://convertio.co/dxf-ai/" target="_blank">Convert DXF to AI file</a>
+* <a href="http://www.dxfconverter.org/" target="_blank">Convert DXF to SVG file (and others)</a>
 
 Screenshot of examples running in WPF:
 
