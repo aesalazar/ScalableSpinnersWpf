@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters\ConverterColorToSolidColorBrush.cs" />
+    <Compile Include="Converters\ConverterIntToSolidColorBrush.cs" />
     <Compile Include="Converters\ConverterKeyTimeMultiplier.cs" />
     <Compile Include="Converters\ConverterNumberMultipliedByFactor.cs" />
     <Compile Include="EightDotsSpinner.xaml.cs">
