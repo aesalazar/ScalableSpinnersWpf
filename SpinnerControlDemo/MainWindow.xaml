@@ -7,7 +7,7 @@
         xmlns:converters="clr-namespace:SpinnerControlLibrary.Converters;assembly=SpinnerControlLibrary"
         xmlns:local="clr-namespace:SpinnerControlDemo"
         mc:Ignorable="d" BorderBrush="Black" BorderThickness="2"
-        Title="MainWindow" Height="350" Width="650">
+        Title="MainWindow" Height="600" Width="800">
 
     <Window.Resources>
         <converters:ConverterIntToSolidColorBrush x:Key="ConverterIntToSolidColorBrush" />
@@ -181,7 +181,7 @@
             </StackPanel.Resources>
             <TextBlock Text="Background Color" />
             <Grid>
-                <TextBlock Text="A:" Grid.Column="0"  />
+                <TextBlock Text="A:" Grid.Column="0" />
                 <Slider x:Name="alpha" Minimum="0" Maximum="255" Value="200" Grid.Column="1"/>
             </Grid>
             <Grid>
