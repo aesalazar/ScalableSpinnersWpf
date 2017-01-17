@@ -4,19 +4,39 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:spinnerControlLibrary="clr-namespace:SpinnerControlLibrary;assembly=SpinnerControlLibrary"
+        xmlns:converters="clr-namespace:SpinnerControlLibrary.Converters;assembly=SpinnerControlLibrary"
+        xmlns:local="clr-namespace:SpinnerControlDemo"
         mc:Ignorable="d" BorderBrush="Black" BorderThickness="2"
         Title="MainWindow" Height="350" Width="650">
 
     <Window.Resources>
+        <converters:ConverterIntToSolidColorBrush x:Key="ConverterIntToSolidColorBrush" />
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Padding" Value="5"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
         </Style>
+        
     </Window.Resources>
     
-    <Grid ShowGridLines="True" Background="SlateGray">
+    <Window.Background>
+        <SolidColorBrush>
+            <SolidColorBrush.Color>
+                <MultiBinding Converter="{StaticResource ConverterIntToSolidColorBrush}">
+                    <MultiBinding.Bindings>
+                        <Binding ElementName="alpha" Path="Value" />
+                        <Binding ElementName="red" Path="Value" />
+                        <Binding ElementName="green" Path="Value" />
+                        <Binding ElementName="blue" Path="Value" />
+                    </MultiBinding.Bindings>
+                </MultiBinding>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+    </Window.Background>
+
+    <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
+            <RowDefinition />
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
@@ -148,6 +168,35 @@
                 DotsStroke="Transparent"
                 Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" />
         </Grid>
+
+        <StackPanel Grid.Row="2" Grid.Column="0">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Grid}">
+                    <Setter Property="local:App.GridColumns" Value="25,*"/>
+                    <Setter Property="VerticalAlignment" Value="Bottom"/>
+                </Style>
+                <Style TargetType="{x:Type Slider}">
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Text="Background Color" />
+            <Grid>
+                <TextBlock Text="A:" Grid.Column="0"  />
+                <Slider x:Name="alpha" Minimum="0" Maximum="255" Value="200" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <TextBlock Text="R:" Grid.Column="0" />
+                <Slider x:Name="red" Minimum="0" Maximum="255" Value="200" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <TextBlock Text="G:" Grid.Column="0" />
+                <Slider x:Name="green" Minimum="0" Maximum="255" Value="200" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <TextBlock Text="B:" Grid.Column="0" />
+                <Slider x:Name="blue" Minimum="0" Maximum="255" Value="200" Grid.Column="1"/>
+            </Grid>
+        </StackPanel>
 
     </Grid>
 </Window>
