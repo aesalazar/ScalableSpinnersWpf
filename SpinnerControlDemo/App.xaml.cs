@@ -53,7 +53,8 @@ namespace SpinnerControlDemo
 
             foreach (var row in rows)
             {
-                switch (row.Trim().ToLower())
+                var lengths = row.Replace(" ", string.Empty).Trim().ToLower();
+                switch (lengths)
                 {
                     case "auto":
                         grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
@@ -65,8 +66,8 @@ namespace SpinnerControlDemo
 
                     default:
                         double length;
-                        var isStarred = row.EndsWith("*");
-                        var isNumeric = double.TryParse(isStarred ? row.TrimEnd('*') : row, out length);
+                        var isStarred = lengths.EndsWith("*");
+                        var isNumeric = double.TryParse(isStarred ? lengths.TrimEnd('*') : lengths, out length);
 
                         if (!isNumeric)
                             throw new ArgumentException("GridRows property must be a csv like: 'Auto,1,*,2*,1.5*'");
@@ -111,12 +112,13 @@ namespace SpinnerControlDemo
 
         private static void DefineGridColumns(Grid grid)
         {
-            var rows = GetGridColumns(grid).Split(Convert.ToChar(","));
+            var columns = GetGridColumns(grid).Split(Convert.ToChar(","));
             grid.ColumnDefinitions.Clear();
 
-            foreach (var row in rows)
+            foreach (var column in columns)
             {
-                switch (row.Trim().ToLower())
+                var lengths = column.Replace(" ", string.Empty).Trim().ToLower();
+                switch (lengths)
                 {
                     case "auto":
                         grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
@@ -128,8 +130,8 @@ namespace SpinnerControlDemo
 
                     default:
                         double length;
-                        var isStarred = row.EndsWith("*");
-                        var isNumeric = double.TryParse(isStarred ? row.TrimEnd('*') : row, out length);
+                        var isStarred = lengths.EndsWith("*");
+                        var isNumeric = double.TryParse(isStarred ? lengths.TrimEnd('*') : lengths, out length);
 
                         if (!isNumeric)
                             throw new ArgumentException("GridColumns property must be a csv like: 'Auto,1,*,2*,1.5*'");
