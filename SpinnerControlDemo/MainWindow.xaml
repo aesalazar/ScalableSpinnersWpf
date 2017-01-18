@@ -46,7 +46,8 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        
+
+        <!--ROW 1-->
         <!--CELL 0:0 - Unconstrained ratio-->
         <Grid Grid.Row="0" Grid.Column="0" >
             <Grid.RowDefinitions>
@@ -169,6 +170,7 @@
                 Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" />
         </Grid>
 
+        <!--CELL 1:4 - Sliders for Background Colors-->
         <StackPanel Grid.Row="2" Grid.Column="0">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type Grid}">
@@ -197,6 +199,12 @@
                 <Slider x:Name="blue" Minimum="0" Maximum="255" Value="200" Grid.Column="1"/>
             </Grid>
         </StackPanel>
+
+        <!--CELL 1:4 - HTML Spinner Cogs-->
+        <Grid Grid.Row="2" Grid.Column="3" local:App.GridRows="20,*" Background="Black" >
+            <TextBlock Text="HTML Version" Foreground="ForestGreen"/>
+            <WebBrowser Source="pack://siteoforigin:,,,/html/spinner-cogs.html" Grid.Row="1" />
+        </Grid>
 
     </Grid>
 </Window>
