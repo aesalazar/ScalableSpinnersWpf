@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -26,15 +21,15 @@ namespace SpinnerControlDemo
             "GridRows"
             , typeof(string)
             , typeof(App)
-            , new FrameworkPropertyMetadata(default(string), FrameworkPropertyMetadataOptions.AffectsMeasure, GridRowsPropertyChanged));
+            , new FrameworkPropertyMetadata(default(string), FrameworkPropertyMetadataOptions.AffectsMeasure, OnGridRowsPropertyChanged));
 
-        private static void GridRowsPropertyChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static void OnGridRowsPropertyChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
-            var sender = dependencyObject as Grid;
-            if (sender == null)
+            var grid = dependencyObject as Grid;
+            if (grid == null)
                 throw new ArgumentException($"GridRows property could not get the Grid object from type '{dependencyObject.GetType()}'");
 
-            DefineGridRows(sender);
+            DefineGridRows(grid);
         }
 
         public static void SetGridRows(DependencyObject element, string value)
@@ -46,14 +41,18 @@ namespace SpinnerControlDemo
             return (string) element.GetValue(GridRowsProperty);
         }
 
-        private static void DefineGridRows(Grid grid)
+        protected static void DefineGridRows(Grid grid)
         {
-            var rows = GetGridRows(grid).Split(Convert.ToChar(","));
             grid.RowDefinitions.Clear();
 
-            foreach (var row in rows)
+            var rows = GetGridRows(grid)
+                .Replace(" ", string.Empty)
+                .Trim()
+                .ToLower()
+                .Split(Convert.ToChar(","));
+
+            foreach (var lengths in rows)
             {
-                var lengths = row.Replace(" ", string.Empty).Trim().ToLower();
                 switch (lengths)
                 {
                     case "auto":
@@ -90,15 +89,15 @@ namespace SpinnerControlDemo
             "GridColumns"
             , typeof(string)
             , typeof(App)
-            , new FrameworkPropertyMetadata(default(string), FrameworkPropertyMetadataOptions.AffectsMeasure, GridColumnsPropertyChanged));
+            , new FrameworkPropertyMetadata(default(string), FrameworkPropertyMetadataOptions.AffectsMeasure, OnGridColumnsPropertyChanged));
 
-        private static void GridColumnsPropertyChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static void OnGridColumnsPropertyChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
-            var sender = dependencyObject as Grid;
-            if (sender == null)
+            var grid = dependencyObject as Grid;
+            if (grid == null)
                 throw new ArgumentException($"GridColumns property could not get the Grid object from type '{dependencyObject.GetType()}'");
 
-            DefineGridColumns(sender);
+            DefineGridColumns(grid);
         }
 
         public static void SetGridColumns(DependencyObject element, string value)
@@ -110,14 +109,18 @@ namespace SpinnerControlDemo
             return (string)element.GetValue(GridColumnsProperty);
         }
 
-        private static void DefineGridColumns(Grid grid)
+        protected static void DefineGridColumns(Grid grid)
         {
-            var columns = GetGridColumns(grid).Split(Convert.ToChar(","));
             grid.ColumnDefinitions.Clear();
 
-            foreach (var column in columns)
+            var columns = GetGridColumns(grid)
+                .Replace(" ", string.Empty)
+                .Trim()
+                .ToLower()
+                .Split(Convert.ToChar(","));
+
+            foreach (var lengths in columns)
             {
-                var lengths = column.Replace(" ", string.Empty).Trim().ToLower();
                 switch (lengths)
                 {
                     case "auto":
