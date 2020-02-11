@@ -1,12 +1,9 @@
-﻿using System.ComponentModel;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 
 namespace SpinnerControlLibrary
 {
-	public partial class DualCogs : UserControl
+	public partial class DualCogs
 	{
         public DualCogs()
 		{
@@ -18,14 +15,15 @@ namespace SpinnerControlLibrary
         /// </summary>
 		public Brush CogsForeground
 		{
-			get { return (Brush)GetValue(CogsForegroundProperty); }
-			set { SetValue(CogsForegroundProperty, value); }
-		}
+			get => (Brush)GetValue(CogsForegroundProperty);
+            set => SetValue(CogsForegroundProperty, value);
+        }
 		public static readonly DependencyProperty CogsForegroundProperty = DependencyProperty.Register(
-            "CogsForeground"
+            nameof(CogsForeground)
             , typeof(Brush)
             , typeof(DualCogs)
-            , new PropertyMetadata(new SolidColorBrush(Color.FromArgb(64, 0, 0, 0))));
+            , new PropertyMetadata(new SolidColorBrush(Color.FromArgb(64, 0, 0, 0)))
+        );
 
 
         /// <summary>
@@ -33,28 +31,30 @@ namespace SpinnerControlLibrary
         /// </summary>
         public Brush CogsStroke
         {
-            get { return (Brush)GetValue(CogsStrokeProperty); }
-            set { SetValue(CogsStrokeProperty, value); }
+            get => (Brush)GetValue(CogsStrokeProperty);
+            set => SetValue(CogsStrokeProperty, value);
         }
 	    public static readonly DependencyProperty CogsStrokeProperty = DependencyProperty.Register(
-	        "CogsStroke"
+	        nameof(CogsStroke)
 	        , typeof (Brush)
 	        , typeof (DualCogs)
-	        , new PropertyMetadata(Brushes.Black));
+	        , new PropertyMetadata(Brushes.Black)
+        );
 
         /// <summary>
         /// Increases or decreases the speed the cogs spin.
         /// </summary>
 	    public double CogsSpeed
 	    {
-	        get { return (double) GetValue(CogsSpeedProperty); }
-	        set { SetValue(CogsSpeedProperty, value); }
-	    }
+	        get => (double) GetValue(CogsSpeedProperty);
+            set => SetValue(CogsSpeedProperty, value);
+        }
 	    public static readonly DependencyProperty CogsSpeedProperty = DependencyProperty.Register(
-            "CogsSpeed"
+            nameof(CogsSpeed)
             , typeof(double)
 	        , typeof(DualCogs)
-	        , new PropertyMetadata(1D));
+	        , new PropertyMetadata(1D)
+        );
         
 	}
 }

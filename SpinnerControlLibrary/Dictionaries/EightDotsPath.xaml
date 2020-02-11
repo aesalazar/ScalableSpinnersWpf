@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:SpinnerControlLibrary.Converters">
+
     <Geometry x:Key="EightDots">
         M309.749 441.751
         C309.749 466.176 289.924 486.001 265.499 486.001
@@ -59,7 +60,61 @@
         C221.249 417.326 241.075 397.501 265.499 397.501
         C289.924 397.501 309.749 417.326 309.749 441.751
         Z
-        
+
     </Geometry>
-    
+
+    <converters:ConverterColorToSolidColorBrush
+                        x:Key="ConverterColorToSolidColorBrush"/>
+
+    <converters:ConverterNumberMultipliedByFactor 
+                        x:Key="ConverterDotHw" 
+                        Factor="0.20" />
+    <converters:ConverterNumberMultipliedByFactor 
+                        x:Key="ConverterDotOrigin" 
+                        Factor="-0.50" />
+
+    <converters:ConverterNumberMultipliedByFactor 
+                        x:Key="ConverterDotOffset0" 
+                        Factor="0.1" />
+    <converters:ConverterNumberMultipliedByFactor 
+                        x:Key="ConverterDotOffset1" 
+                        Factor="0.2172" />
+    <converters:ConverterNumberMultipliedByFactor 
+                        x:Key="ConverterDotOffset2" 
+                        Factor="0.50" />
+    <converters:ConverterNumberMultipliedByFactor 
+                        x:Key="ConverterDotOffset3" 
+                        Factor="0.7828" />
+    <converters:ConverterNumberMultipliedByFactor 
+                        x:Key="ConverterDotOffset4" 
+                        Factor="0.90" />
+
+    <converters:ConverterKeyTimeMultiplier
+                        x:Key="ConverterKeyTimeMultiplier0"
+                        KeyTime="0:0:00"/>
+    <converters:ConverterKeyTimeMultiplier
+                        x:Key="ConverterKeyTimeMultiplier1"
+                        KeyTime="0:0:0.25"/>
+    <converters:ConverterKeyTimeMultiplier
+                        x:Key="ConverterKeyTimeMultiplier2"
+                        KeyTime="0:0:0.50"/>
+    <converters:ConverterKeyTimeMultiplier
+                        x:Key="ConverterKeyTimeMultiplier3"
+                        KeyTime="0:0:0.75"/>
+    <converters:ConverterKeyTimeMultiplier
+                        x:Key="ConverterKeyTimeMultiplier4"
+                        KeyTime="0:0:1.00"/>
+    <converters:ConverterKeyTimeMultiplier
+                        x:Key="ConverterKeyTimeMultiplier5"
+                        KeyTime="0:0:1.25"/>
+    <converters:ConverterKeyTimeMultiplier
+                        x:Key="ConverterKeyTimeMultiplier6"
+                        KeyTime="0:0:1.50"/>
+    <converters:ConverterKeyTimeMultiplier
+                        x:Key="ConverterKeyTimeMultiplier7"
+                        KeyTime="0:0:1.75"/>
+    <converters:ConverterKeyTimeMultiplier
+                        x:Key="ConverterKeyTimeMultiplier8"
+                        KeyTime="0:0:2.00"/>
+
 </ResourceDictionary>

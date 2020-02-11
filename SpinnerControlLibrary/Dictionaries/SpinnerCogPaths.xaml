@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:SpinnerControlLibrary.Converters">
 
     <Geometry x:Key="CogPath">
         M630.012 419.949
@@ -19,7 +20,13 @@
         L837.9 377.95 L837.9 461.947 L753.372 461.947 L729.711 550.254 L802.914 592.518 
         L760.915 665.262 L687.712 622.998 L623.067 687.643 L665.331 760.846 Z
     </Geometry>
-    
 
+    <converters:ConverterNumberMultipliedByFactor x:Key="ConverterCanvasSizeHw" Factor="0.58" />
+    <converters:ConverterNumberMultipliedByFactor x:Key="ConverterCanvasSizeLr1" Factor="0.02" />
+    <converters:ConverterNumberMultipliedByFactor x:Key="ConverterCanvasSizeLr2" Factor="0.41" />
+
+    <converters:ConverterKeyTimeMultiplier x:Key="ConverterKeyTimeMultiplier1" KeyTime="00:00:00"/>
+    <converters:ConverterKeyTimeMultiplier x:Key="ConverterKeyTimeMultiplier2" KeyTime="00:00:05"/>
+    <converters:ConverterKeyTimeMultiplier x:Key="ConverterKeyTimeMultiplier3" KeyTime="00:00:10"/>
 
 </ResourceDictionary>

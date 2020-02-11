@@ -48,6 +48,7 @@
         </Grid.ColumnDefinitions>
 
         <!--ROW 1-->
+
         <!--CELL 0:0 - Unconstrained ratio-->
         <Grid Grid.Row="0" Grid.Column="0" >
             <Grid.RowDefinitions>
@@ -106,6 +107,8 @@
                 <TextBlock Text="Maecenas consequat sagittis mattis. Sed vitae arcu a diam feugiat cursus ut in mi. Mauris iaculis in nisl eu porttitor. Nam posuere, felis et rhoncus porta, enim lorem suscipit lectus, quis tincidunt purus odio et mauris. Integer ullamcorper felis nec gravida tempus. Quisque et sapien sem. Vestibulum quis orci auctor, lacinia mauris vitae, mollis magna. Ut vulputate lectus dolor, sit amet mattis sapien faucibus at. Pellentesque lobortis nulla vel nisl convallis, a varius arcu varius. Morbi et tellus et augue convallis faucibus id sed quam. Aenean a lorem lacus. Donec pellentesque commodo lectus id dictum. " />
             </StackPanel>
 
+            <TextBlock Text="Opacity" Foreground="GreenYellow" Background="Transparent"/>
+      
             <spinnerControlLibrary:DualCogs
                 Opacity=".35"
                 CogsSpeed="3"
@@ -115,6 +118,7 @@
         </Grid>
 
         <!--ROW 2-->
+
         <!--CELL 1:0 - Unconstrained ratio-->
         <Grid Grid.Row="1" Grid.Column="0" >
             <spinnerControlLibrary:EightDotsSpinner
@@ -122,6 +126,7 @@
                 DotsStroke="DimGray"
                 DotsForegroundColor="LightYellow"
                 DotsBackgroundColor="Black"/>
+            <TextBlock Text="Unconstrained Ratio" />
         </Grid>
 
         <!--CELL 1:1 - 1 to 1 ratio-->
@@ -131,10 +136,12 @@
                 DotsBackgroundColor="White"
                 DotsStroke="LightYellow"
                 Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}"/>
+            <TextBlock Text="Stretch Height/Fixed Ratio" />
         </Grid>
 
         <!--CELL 1:2 - 1 to 1 ratio at fixed size-->
         <Grid Grid.Row="1" Grid.Column="2" >
+            <TextBlock Text="Fixed Size/Ratio" />
             <spinnerControlLibrary:EightDotsSpinner
                 Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}"
                 DotsStroke="Transparent"
@@ -161,6 +168,8 @@
                 <TextBlock Text="Maecenas consequat sagittis mattis. Sed vitae arcu a diam feugiat cursus ut in mi. Mauris iaculis in nisl eu porttitor. Nam posuere, felis et rhoncus porta, enim lorem suscipit lectus, quis tincidunt purus odio et mauris. Integer ullamcorper felis nec gravida tempus. Quisque et sapien sem. Vestibulum quis orci auctor, lacinia mauris vitae, mollis magna. Ut vulputate lectus dolor, sit amet mattis sapien faucibus at. Pellentesque lobortis nulla vel nisl convallis, a varius arcu varius. Morbi et tellus et augue convallis faucibus id sed quam. Aenean a lorem lacus. Donec pellentesque commodo lectus id dictum. " />
             </StackPanel>
 
+            <TextBlock Text="Opacity" Foreground="GreenYellow" Background="Transparent"/>
+
             <spinnerControlLibrary:EightDotsSpinner
                 Opacity=".35"
                 RotateSpeed="3"
@@ -170,7 +179,9 @@
                 Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" />
         </Grid>
 
-        <!--CELL 1:4 - Sliders for Background Colors-->
+        <!--ROW 3-->
+
+        <!--CELL 2:0 - Sliders for Background Colors-->
         <StackPanel Grid.Row="2" Grid.Column="0">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type Grid}">
@@ -200,9 +211,13 @@
             </Grid>
         </StackPanel>
 
-        <!--CELL 1:4 - HTML Spinner Cogs-->
+        <!--CELL 2:1 - BLANK-->
+        <Grid Grid.Row="2" Grid.Column="1">
+        </Grid>
+
+        <!--CELL 2:3 - HTML Spinner Cogs-->
         <Grid Grid.Row="2" Grid.Column="3" local:App.GridRows="20,*" Background="Black" >
-            <TextBlock Text="HTML Version" Foreground="ForestGreen"/>
+            <TextBlock Text="HTML Version" Foreground="GreenYellow"/>
             <WebBrowser Source="pack://siteoforigin:,,,/html/spinner-cogs.html" Grid.Row="1" />
         </Grid>
 

@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:converters="clr-namespace:SpinnerControlLibrary.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
@@ -12,59 +11,6 @@
                 <ResourceDictionary Source="Dictionaries/EightDotsPath.xaml" />
 
                 <ResourceDictionary >
-                    <converters:ConverterColorToSolidColorBrush
-                        x:Key="ConverterColorToSolidColorBrush"/>
-
-                    <converters:ConverterNumberMultipliedByFactor 
-                        x:Key="ConverterDotHW" 
-                        Factor="0.20" />
-                    <converters:ConverterNumberMultipliedByFactor 
-                        x:Key="ConverterDotOrigin" 
-                        Factor="-0.50" />
-
-                    <converters:ConverterNumberMultipliedByFactor 
-                        x:Key="ConverterDotOffset0" 
-                        Factor="0.1" />
-                    <converters:ConverterNumberMultipliedByFactor 
-                        x:Key="ConverterDotOffset1" 
-                        Factor="0.2172" />
-                    <converters:ConverterNumberMultipliedByFactor 
-                        x:Key="ConverterDotOffset2" 
-                        Factor="0.50" />
-                    <converters:ConverterNumberMultipliedByFactor 
-                        x:Key="ConverterDotOffset3" 
-                        Factor="0.7828" />
-                    <converters:ConverterNumberMultipliedByFactor 
-                        x:Key="ConverterDotOffset4" 
-                        Factor="0.90" />
-
-                    <converters:ConverterKeyTimeMultiplier
-                        x:Key="ConverterKeyTimeMultiplier0"
-                        KeyTime="0:0:00"/>
-                    <converters:ConverterKeyTimeMultiplier
-                        x:Key="ConverterKeyTimeMultiplier1"
-                        KeyTime="0:0:0.25"/>
-                    <converters:ConverterKeyTimeMultiplier
-                        x:Key="ConverterKeyTimeMultiplier2"
-                        KeyTime="0:0:0.50"/>
-                    <converters:ConverterKeyTimeMultiplier
-                        x:Key="ConverterKeyTimeMultiplier3"
-                        KeyTime="0:0:0.75"/>
-                    <converters:ConverterKeyTimeMultiplier
-                        x:Key="ConverterKeyTimeMultiplier4"
-                        KeyTime="0:0:1.00"/>
-                    <converters:ConverterKeyTimeMultiplier
-                        x:Key="ConverterKeyTimeMultiplier5"
-                        KeyTime="0:0:1.25"/>
-                    <converters:ConverterKeyTimeMultiplier
-                        x:Key="ConverterKeyTimeMultiplier6"
-                        KeyTime="0:0:1.50"/>
-                    <converters:ConverterKeyTimeMultiplier
-                        x:Key="ConverterKeyTimeMultiplier7"
-                        KeyTime="0:0:1.75"/>
-                    <converters:ConverterKeyTimeMultiplier
-                        x:Key="ConverterKeyTimeMultiplier8"
-                        KeyTime="0:0:2.00"/>
 
                     <Storyboard x:Key="ColorStoryboard" RepeatBehavior="Forever" 
                                 Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
@@ -226,15 +172,15 @@
                                                   Path=RotateSpeed, 
                                                   Converter={StaticResource ConverterKeyTimeMultiplier8}}" />
                         </ColorAnimationUsingKeyFrames>
-                        
+
                     </Storyboard>
 
                     <Style TargetType="{x:Type Ellipse}">
                         <Setter Property="RenderTransform">
                             <Setter.Value>
                                 <TranslateTransform 
-                                    X="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=Ellipse}, Path=ActualWidth, Converter={StaticResource ConverterDotOrigin} }"
-                                    Y="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=Ellipse}, Path=ActualHeight, Converter={StaticResource ConverterDotOrigin} }"
+                                    X="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Ellipse}, Converter={StaticResource ConverterDotOrigin} }"
+                                    Y="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Ellipse}, Converter={StaticResource ConverterDotOrigin} }"
                                 />
                             </Setter.Value>
                         </Setter>
@@ -243,8 +189,8 @@
                         <Setter Property="Fill" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Path=DotsBackgroundColor, Converter={StaticResource ConverterColorToSolidColorBrush}}" />
                         <Setter Property="Stretch" Value="Fill" />
                         <Setter Property="UseLayoutRounding" Value="False" />
-                        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type Canvas}}, Path=ActualWidth, Converter={StaticResource ConverterDotHW}}" />
-                        <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type Canvas}}, Path=ActualHeight, Converter={StaticResource ConverterDotHW}}" />
+                        <Setter Property="Width" Value="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type Canvas}}, Converter={StaticResource ConverterDotHw}}" />
+                        <Setter Property="Height" Value="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type Canvas}}, Converter={StaticResource ConverterDotHw}}" />
                     </Style>
                 </ResourceDictionary >
 

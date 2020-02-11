@@ -3,7 +3,6 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	xmlns:converters="clr-namespace:SpinnerControlLibrary.Converters"
 	x:Class="SpinnerControlLibrary.DualCogs"
 	x:Name="UserControl"
 	mc:Ignorable="d" d:DesignWidth="50" d:DesignHeight="50">
@@ -13,27 +12,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Dictionaries/SpinnerCogPaths.xaml" />
 
-                <ResourceDictionary >
-                    <converters:ConverterNumberMultipliedByFactor 
-                        x:Key="ConverterCanvasSizeHW" 
-                        Factor="0.58" />
-                    <converters:ConverterNumberMultipliedByFactor
-                        x:Key="ConverterCanvasSizeLR1" 
-                        Factor="0.02" />
-                    <converters:ConverterNumberMultipliedByFactor 
-                        x:Key="ConverterCanvasSizeLR2" 
-                        Factor="0.41" />
-
-                    <converters:ConverterKeyTimeMultiplier
-                        x:Key="ConverterKeyTimeMultiplier1"
-                        KeyTime="00:00:00"/>
-                    <converters:ConverterKeyTimeMultiplier
-                        x:Key="ConverterKeyTimeMultiplier2"
-                        KeyTime="00:00:05"/>
-                    <converters:ConverterKeyTimeMultiplier
-                        x:Key="ConverterKeyTimeMultiplier3"
-                        KeyTime="00:00:10"/>                    
-
+                <ResourceDictionary>
                     <Storyboard x:Key="SpinnerStoryboard"  RepeatBehavior="Forever" >
                         <DoubleAnimationUsingKeyFrames 
                             BeginTime="00:00:00" 
@@ -106,13 +85,13 @@
               UseLayoutRounding="False" 
               RenderTransformOrigin="0.5,0.5"
 			  Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Canvas}}, 
-                        Path=ActualWidth,Converter={StaticResource ConverterCanvasSizeHW}}" 
+                        Path=ActualWidth,Converter={StaticResource ConverterCanvasSizeHw}}" 
 			  Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type Canvas}}, 
-                        Path=ActualHeight,Converter={StaticResource ConverterCanvasSizeHW}}" 
+                        Path=ActualHeight,Converter={StaticResource ConverterCanvasSizeHw}}" 
 			  Canvas.Left="{Binding RelativeSource={RelativeSource AncestorType={x:Type Canvas}}, 
-                            Path=ActualWidth,Converter={StaticResource ConverterCanvasSizeLR1}}" 
+                            Path=ActualWidth,Converter={StaticResource ConverterCanvasSizeLr1}}" 
 			  Canvas.Top="{Binding RelativeSource={RelativeSource AncestorType={x:Type Canvas}}, 
-                            Path=ActualHeight,Converter={StaticResource ConverterCanvasSizeLR1}}" >
+                            Path=ActualHeight,Converter={StaticResource ConverterCanvasSizeLr1}}" >
             <Path.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -131,13 +110,13 @@
               RenderTransformOrigin="0.5,0.5" 
               UseLayoutRounding="False" 
 			  Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Canvas}}, 
-                        Path=ActualWidth,Converter={StaticResource ConverterCanvasSizeHW}}" 
+                        Path=ActualWidth,Converter={StaticResource ConverterCanvasSizeHw}}" 
 			  Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type Canvas}}, 
-                        Path=ActualHeight,Converter={StaticResource ConverterCanvasSizeHW}}" 
+                        Path=ActualHeight,Converter={StaticResource ConverterCanvasSizeHw}}" 
 			  Canvas.Left="{Binding RelativeSource={RelativeSource AncestorType={x:Type Canvas}}, 
-                            Path=ActualWidth,Converter={StaticResource ConverterCanvasSizeLR2}}" 
+                            Path=ActualWidth,Converter={StaticResource ConverterCanvasSizeLr2}}" 
 			  Canvas.Top="{Binding RelativeSource={RelativeSource AncestorType={x:Type Canvas}}, 
-                            Path=ActualHeight,Converter={StaticResource ConverterCanvasSizeLR2}}"  >
+                            Path=ActualHeight,Converter={StaticResource ConverterCanvasSizeLr2}}"  >
             <Path.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
